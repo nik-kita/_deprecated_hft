@@ -28,7 +28,12 @@ export const handler: Handlers = {
 
     logs.push(data);
 
-    return new Response(null);
+    return new Response(null, {
+      status: 307,
+      headers: new Headers({
+        location: "/",
+      }),
+    });
   },
 };
 
