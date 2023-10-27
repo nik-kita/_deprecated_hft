@@ -1,0 +1,27 @@
+@layer default, routes, islands, components;
+
+@layer default {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  * {
+    background-color: rgba(100, 100, 200, 0.1);
+  }
+
+
+  /* for development only */
+  *:nth-child(odd) {
+    border: 1px solid black;
+  }
+
+
+  *:nth-child(even) {
+    border: 1px solid grey;
+  }
+}
