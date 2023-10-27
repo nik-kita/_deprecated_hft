@@ -1,6 +1,17 @@
 import { Head } from "$fresh/runtime.ts";
+import { Handlers } from "$fresh/server.ts";
 import { defineRoute } from "$fresh/src/server/defines.ts";
 import { CONFIG } from "../src/config.ts";
+
+export const handler: Handlers = {
+  async POST(req, ctx) {
+    return Response.json({
+      json: await req.json(),
+      formData: await req.formData(),
+      headers: Array.from(req.headers.entries()),
+    });
+  },
+};
 
 export default defineRoute((req) => {
   return (
