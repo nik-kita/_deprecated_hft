@@ -3,13 +3,19 @@ import { Handlers } from "$fresh/server.ts";
 import { defineRoute } from "$fresh/src/server/defines.ts";
 import { CONFIG } from "../src/config.ts";
 
+const logs: object[] = [];
+
 export const handler: Handlers = {
   async POST(req, ctx) {
-    return Response.json({
+    const data = {
       json: await req.json(),
       formData: await req.formData(),
       headers: Array.from(req.headers.entries()),
-    });
+    };
+
+    logs.push(data);
+
+    return new Response(null);
   },
 };
 
@@ -41,6 +47,8 @@ export default defineRoute((req) => {
         >
         </div>
       </div>
+      <hr />
+      <pre>{JSON.stringify(logs, null, 2)}</pre>
     </>
   );
 });
