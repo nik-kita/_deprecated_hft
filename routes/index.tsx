@@ -7,9 +7,20 @@ const logs: object[] = [];
 
 export const handler: Handlers = {
   async POST(req, ctx) {
+    let json: object = {};
+    let formData: object = {};
+
+    try {
+      json = await req.json();
+    } catch (e) {}
+
+    try {
+      formData = await req.formData();
+    } catch (e) {}
+
     const data = {
-      json: await req.json(),
-      formData: await req.formData(),
+      json,
+      formData,
       headers: Array.from(req.headers.entries()),
     };
 
