@@ -23,17 +23,11 @@ export const handler: Handlers = {
       formData,
       text: await req.text(),
       body: req.body,
-      headers: Array.from(req.headers.entries()),
     };
 
     logs.push(data);
 
-    return new Response(null, {
-      status: 307,
-      headers: new Headers({
-        location: "/",
-      }),
-    });
+    return ctx.render();
   },
 };
 
