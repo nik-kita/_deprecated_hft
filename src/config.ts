@@ -7,6 +7,7 @@ await load({ envPath, export: true });
 const CONFIG_KEYS = [
   "GOOGLE_AUTH_CLIENT_ID",
   "API_URL",
+  "SELF_URL",
 ] as const;
 
 export const CONFIG = CONFIG_KEYS.reduce((conf, key) => {
