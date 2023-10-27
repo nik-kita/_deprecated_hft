@@ -7,27 +7,19 @@ const logs: object[] = [];
 
 export const handler: Handlers = {
   async POST(req, ctx) {
-    let json: object = {};
-    let formData: object = {};
-
     try {
-      json = await req.json();
-    } catch (e) {}
+      const formData = await req.formData();
 
-    try {
-      formData = await req.formData();
-    } catch (e) {}
+      const data = {
+        formData: Array.from(formData.values()),
+      };
 
-    const data = {
-      json,
-      formData,
-      text: await req.text(),
-      body: req.body,
-    };
+      logs.push(data);
 
-    logs.push(data);
-
-    return ctx.render();
+      return ctx.render();
+    } catch (e) {
+      return ctx.render();
+    }
   },
 };
 
