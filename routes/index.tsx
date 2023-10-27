@@ -25,7 +25,7 @@ export default defineRoute((req) => {
           data-client_id={CONFIG.GOOGLE_AUTH_CLIENT_ID}
           data-context="use"
           data-ux_mode="popup"
-          data-login_uri={`${CONFIG.API_URL}/auth`}
+          // data-login_uri={`${CONFIG.API_URL}/auth`}
           data-itp_support="true"
         >
         </div>
