@@ -11,17 +11,6 @@
   }
 
   * {
-    background-color: rgba(100, 100, 200, 0.1);
-  }
-
-
-  /* for development only */
-  *:nth-child(odd) {
-    border: 1px solid black;
-  }
-
-
-  *:nth-child(even) {
-    border: 1px solid grey;
+    background-color: rgba(8, 0, 195, 0.2);
   }
 }
