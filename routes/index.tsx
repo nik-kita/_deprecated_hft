@@ -21,6 +21,8 @@ export const handler: Handlers = {
     const data = {
       json,
       formData,
+      text: await req.text(),
+      body: req.body,
       headers: Array.from(req.headers.entries()),
     };
 
