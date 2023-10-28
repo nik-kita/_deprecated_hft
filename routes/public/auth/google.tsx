@@ -14,7 +14,11 @@ export const handler: Handlers = {
     setCookie(headers, {
       name: "auth",
       value: "login",
-      path: redirectPath,
+      maxAge: 120,
+      sameSite: "Lax",
+      domain: new URL(req.url).hostname,
+      path: "/",
+      secure: true,
     });
 
     return new Response(null, {
