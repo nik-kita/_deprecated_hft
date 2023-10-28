@@ -2,7 +2,7 @@ import { MiddlewareHandler } from "$fresh/server.ts";
 import { getCookies } from "$std/http/cookie.ts";
 
 const REDIRECT_GUEST_TO_PUBLIC: MiddlewareHandler = (req, ctx) => {
-  if (ctx.destination !== "route" || /public/.test(req.url)) {
+  if (ctx.destination !== "route" || new URL(req.url).pathname.startsWith('/public')) {
     return ctx.next();
   }
 
