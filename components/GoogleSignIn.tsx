@@ -2,10 +2,10 @@ import { Head } from "$fresh/runtime.ts";
 
 type Props = {
   GOOGLE_AUTH_CLIENT_ID: string;
-  ctxUrl: URL | string;
+  cbName: string;
 };
 
-export default function GoogleSignIn({ GOOGLE_AUTH_CLIENT_ID, ctxUrl }: Props) {
+export default function GoogleSignIn({ GOOGLE_AUTH_CLIENT_ID, cbName }: Props) {
   return (
     <>
       <Head>
@@ -17,7 +17,7 @@ export default function GoogleSignIn({ GOOGLE_AUTH_CLIENT_ID, ctxUrl }: Props) {
           data-client_id={GOOGLE_AUTH_CLIENT_ID}
           data-context="use"
           data-ux_mode="popup"
-          data-login_uri={ctxUrl}
+          data-callback={cbName}
           data-itp_support="true"
         >
         </div>
