@@ -1,4 +1,4 @@
-import { defineLayout, LayoutConfig, UnknownHandler } from "$fresh/server.ts";
+import { defineLayout, LayoutConfig } from "$fresh/server.ts";
 import GoogleSignIn from "../../components/GoogleSignIn.tsx";
 import { CONFIG } from "../../src/config.ts";
 
