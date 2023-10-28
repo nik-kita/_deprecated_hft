@@ -19,8 +19,6 @@ export const CONFIG = CONFIG_KEYS.reduce((conf, key) => {
 function getValue(envName: string, throwError = false) {
   const v = Deno.env.get(envName);
 
-  console.log(v);
-
   if (v) return v;
 
   const errorMessage = `${envName} is missing!`;
