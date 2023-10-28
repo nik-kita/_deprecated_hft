@@ -3,12 +3,20 @@ import { setCookie } from "$std/http/cookie.ts";
 
 export const handler: Handlers = {
   async POST(req, ctx) {
-    ctx.state.gData = await req.formData();
+    const gData = await req.formData();
 
-    const headers = new Headers();
+    const headers = new Headers({
+      location: "/log",
+      "content-type": "json",
+    });
 
     setCookie(headers, { name: "auth", value: "login" });
 
-    return new Response(null, { status: 204, headers });
+    return new Response(
+      JSON.stringify({
+        gData: Object.fromEntries(Array.from(gData.entries())),
+      }),
+      { status: 307, headers },
+    );
   },
 };
