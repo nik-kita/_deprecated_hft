@@ -7,8 +7,8 @@ import * as $1 from "./routes/_app.tsx";
 import * as $2 from "./routes/_layout.tsx";
 import * as $3 from "./routes/_middleware.ts";
 import * as $4 from "./routes/index.tsx";
-import * as $5 from "./routes/public/[...path].tsx";
-import * as $6 from "./routes/public/_layout.tsx";
+import * as $5 from "./routes/public/_layout.tsx";
+import * as $6 from "./routes/public/auth/google.tsx";
 import * as $7 from "./routes/public/index.tsx";
 
 const manifest = {
@@ -18,8 +18,8 @@ const manifest = {
     "./routes/_layout.tsx": $2,
     "./routes/_middleware.ts": $3,
     "./routes/index.tsx": $4,
-    "./routes/public/[...path].tsx": $5,
-    "./routes/public/_layout.tsx": $6,
+    "./routes/public/_layout.tsx": $5,
+    "./routes/public/auth/google.tsx": $6,
     "./routes/public/index.tsx": $7,
   },
   islands: {},

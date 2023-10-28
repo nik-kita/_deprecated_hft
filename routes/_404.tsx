@@ -9,7 +9,7 @@ export default defineRoute((req, ctx) => {
       </Head>
       <div>
         <h1>Not found...</h1>
-        <h2>{ctx.url}{ctx.route}{ctx.params}</h2>
+        <h2>{req.method}: {req.url}</h2>
       </div>
     </>
   );

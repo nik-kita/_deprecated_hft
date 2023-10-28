@@ -2,7 +2,7 @@ import { Head } from "$fresh/runtime.ts";
 
 type Props = {
   GOOGLE_AUTH_CLIENT_ID: string;
-  ctxUrl: URL;
+  ctxUrl: URL | string;
 };
 
 export default function GoogleSignIn({ GOOGLE_AUTH_CLIENT_ID, ctxUrl }: Props) {
