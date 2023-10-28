@@ -1,6 +1,7 @@
 import { Head } from "$fresh/runtime.ts";
+import { defineRoute } from "$fresh/server.ts";
 
-export default function Error404() {
+export default defineRoute((req, ctx) => {
   return (
     <>
       <Head>
@@ -8,7 +9,8 @@ export default function Error404() {
       </Head>
       <div>
         <h1>Not found...</h1>
+        <h2>{ctx.url}{ctx.route}{ctx.params}</h2>
       </div>
     </>
   );
-}
+});
