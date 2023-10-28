@@ -12,7 +12,7 @@ export default defineLayout((req, { Component, url }) => {
     <>
       <GoogleSignIn
         GOOGLE_AUTH_CLIENT_ID={CONFIG.GOOGLE_AUTH_CLIENT_ID}
-        ctxUrl={`${url.hostname}/public/auth/google`}
+        ctxUrl={"/public/auth/google"}
       />
       <h3>This is public/_layout.tsx</h3>
       <hr />
