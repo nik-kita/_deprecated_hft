@@ -1,8 +1,18 @@
 import { getCookies } from "$std/http/cookie.ts";
+import { Handlers, RouteContext } from "$fresh/server.ts";
 
-export default function Log(req: Request) {
+export const handler: Handlers = {
+  async POST(req, ctx) {
+    const res = await ctx.render(req);
+
+    return res;
+  },
+};
+
+// deno-lint-ignore require-await
+export default async function Log(req: Request, ctx: RouteContext) {
   const qs = Object.fromEntries(new URL(req.url).searchParams.entries());
-  const cookies = getCookies(req.headers || new Headers());
+  const cookies = getCookies(req.headers);
 
   return (
     <div>
