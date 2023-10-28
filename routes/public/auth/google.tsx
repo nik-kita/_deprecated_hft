@@ -7,6 +7,7 @@ export const handler: Handlers = {
 
     const headers = new Headers({
       location: "/public/log",
+      "content-type": "html",
     });
 
     setCookie(headers, { name: "auth", value: "login" });
