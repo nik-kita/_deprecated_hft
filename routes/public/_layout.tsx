@@ -14,6 +14,7 @@ function handleResponseCredentials(data: unknown) {
 export default defineLayout((req, { Component, url }) => {
   return (
     <>
+      <script>{handleResponseCredentials}</script>
       <GoogleSignIn
         GOOGLE_AUTH_CLIENT_ID={CONFIG.GOOGLE_AUTH_CLIENT_ID}
         cbName={handleResponseCredentials.name}
