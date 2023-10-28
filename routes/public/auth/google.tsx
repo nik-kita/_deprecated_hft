@@ -6,7 +6,7 @@ export const handler: Handlers = {
     const gData = await req.formData();
 
     const headers = new Headers({
-      location: "/log",
+      location: "/public/log",
     });
 
     setCookie(headers, { name: "auth", value: "login" });
