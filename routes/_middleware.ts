@@ -1,5 +1,6 @@
 import { MiddlewareHandler } from "$fresh/server.ts";
 import { getCookies } from "$std/http/cookie.ts";
+import { CONFIG } from "../src/config.ts";
 
 const REDIRECT_GUEST_TO_PUBLIC: MiddlewareHandler = (req, ctx) => {
   if (ctx.destination !== "route") return ctx.next();
@@ -25,6 +26,17 @@ const REDIRECT_GUEST_TO_PUBLIC: MiddlewareHandler = (req, ctx) => {
   });
 };
 
+const CORS_FOR_API: MiddlewareHandler = async (req, ctx) => {
+  const res = await ctx.next();
+
+  if (new URL(res.url).hostname === new URL(CONFIG.API_URL).hostname) {
+    res.headers.set("Access-Control-Allow-Origin", CONFIG.API_URL);
+  }
+
+  return res;
+};
+
 export const handler = [
   REDIRECT_GUEST_TO_PUBLIC,
+  CORS_FOR_API,
 ] satisfies MiddlewareHandler[];
