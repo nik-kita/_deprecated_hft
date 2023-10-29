@@ -18,7 +18,7 @@ export default function GoogleSignIn({ GOOGLE_AUTH_CLIENT_ID, ctxUrl }: Props) {
           data-context="use"
           data-ux_mode="popup"
           data-login_uri={ctxUrl}
-          data-itp_support="true"
+          data-auto_prompt="false"
         >
         </div>
         <div
