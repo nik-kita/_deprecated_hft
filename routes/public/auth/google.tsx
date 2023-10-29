@@ -27,7 +27,7 @@ export const handler: Handlers = {
     });
 
     return new Response(null, {
-      status: 307,
+      status: 303,
       headers,
     });
   },
