@@ -3,6 +3,7 @@ import { setCookie } from "$std/http/cookie.ts";
 
 export const handler: Handlers = {
   async POST(req, ctx) {
+    console.log(req.url);
     const url = new URL(req.url);
     const location = url.searchParams.get("ui");
 
