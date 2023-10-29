@@ -1,5 +1,11 @@
 import { AppProps } from "$fresh/server.ts";
 
+declare global {
+  interface ContextState {
+    auth?: "login";
+  }
+}
+
 export default function App({ Component }: AppProps) {
   return (
     <html>

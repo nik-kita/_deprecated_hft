@@ -12,6 +12,8 @@ const REDIRECT_GUEST_TO_PUBLIC: MiddlewareHandler = (req, ctx) => {
   const { auth } = getCookies(req.headers);
 
   if (auth === "login") {
+    ctx.state.auth = "login";
+
     return ctx.next();
   }
 

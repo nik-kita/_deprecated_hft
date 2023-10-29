@@ -7,17 +7,20 @@ export const config: LayoutConfig = {
   skipInheritedLayouts: true,
 };
 
-export default defineLayout((req, { Component, url }) => {
+export default defineLayout<ContextState>((req, { Component, url, state }) => {
   const authUrl = new URL(`${url.origin}/public/auth/google`);
 
   authUrl.searchParams.append("ui", url.pathname);
 
   return (
     <>
-      <GoogleSignIn
-        GOOGLE_AUTH_CLIENT_ID={CONFIG.GOOGLE_AUTH_CLIENT_ID}
-        ctxUrl={authUrl}
-      />
+      {state.auth === "login" ||
+        (
+          <GoogleSignIn
+            GOOGLE_AUTH_CLIENT_ID={CONFIG.GOOGLE_AUTH_CLIENT_ID}
+            ctxUrl={authUrl}
+          />
+        )}
       <h3>This is public/_layout.tsx</h3>
       <hr />
       <Component />
