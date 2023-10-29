@@ -1,0 +1,9 @@
+@layer components.GoogleSignIn {
+  .root {
+    display: flex;
+    justify-content: right;
+    float: right;
+    padding-right: 1vw;
+    padding-top: 1vw;
+  }
+}
