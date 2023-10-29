@@ -1,6 +1,8 @@
 @layer default, routes, islands, components;
 
-/* @import './components/GoogleSignIn.css'; */
+@import './css/routes/public/_layout.css';
+
+@import './css/components/GoogleSignIn.css';
 
 @layer default {
   body {
@@ -11,8 +13,5 @@
   * {
     box-sizing: border-box;
   }
-
-  * {
-    background-color: rgba(8, 0, 195, 0.2);
-  }
 }
+
