@@ -29,7 +29,7 @@ const REDIRECT_GUEST_TO_PUBLIC: MiddlewareHandler = (req, ctx) => {
 const CORS_FOR_API: MiddlewareHandler = async (req, ctx) => {
   const res = await ctx.next();
 
-  if (new URL(res.url).hostname === new URL(CONFIG.API_URL).hostname) {
+  if (res.url && new URL(res.url).hostname === new URL(CONFIG.API_URL).hostname) {
     res.headers.set("Access-Control-Allow-Origin", CONFIG.API_URL);
   }
 
