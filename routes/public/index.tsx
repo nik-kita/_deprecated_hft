@@ -4,7 +4,7 @@ export default defineRoute((req, ctx) => {
   return (
     <div>
       <h2>{title}</h2>
-      <ul class='list-outside bg-slate-500'>{steps}</ul>
+      <ul class="list-outside bg-slate-500">{steps}</ul>
     </div>
   );
 });
