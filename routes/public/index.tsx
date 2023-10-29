@@ -1,9 +1,14 @@
-import { RouteContext } from "$fresh/server.ts";
+import { defineRoute, RouteContext } from "$fresh/server.ts";
 
-export default function Welcome(ctx: RouteContext) {
+export default defineRoute((req, ctx) => {
   return (
-    <>
-      <h1>Welcome, Guest!</h1>
-    </>
+    <div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique,
+        consectetur nihil? Voluptate quos quibusdam, odio nemo repellat,
+        voluptas iure vitae laboriosam debitis ipsam sunt omnis expedita
+        inventore laudantium, eligendi ipsa.
+      </p>
+    </div>
   );
-}
+});

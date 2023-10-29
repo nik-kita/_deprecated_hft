@@ -8,21 +8,18 @@ export const config: LayoutConfig = {
 };
 
 export default defineLayout<ContextState>((req, { Component, url, state }) => {
+  if (state.auth === "login") return <Component />;
+
   const authUrl = new URL(`${url.origin}/public/auth/google`);
 
   authUrl.searchParams.append("ui", url.pathname);
 
   return (
     <>
-      {state.auth === "login" ||
-        (
-          <GoogleSignIn
-            GOOGLE_AUTH_CLIENT_ID={CONFIG.GOOGLE_AUTH_CLIENT_ID}
-            ctxUrl={authUrl}
-          />
-        )}
-      <h3>This is public/_layout.tsx</h3>
-      <hr />
+      <GoogleSignIn
+        GOOGLE_AUTH_CLIENT_ID={CONFIG.GOOGLE_AUTH_CLIENT_ID}
+        ctxUrl={authUrl}
+      />
       <Component />
     </>
   );

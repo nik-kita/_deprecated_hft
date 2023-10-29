@@ -11,7 +11,7 @@ const REDIRECT_GUEST_TO_PUBLIC: MiddlewareHandler = (req, ctx) => {
     ctx.state.auth = "login";
 
     return ctx.next();
-  // authentication are not required
+    // authentication are not required
   } else if (new URL(req.url).pathname.startsWith("/public")) {
     return ctx.next();
   }

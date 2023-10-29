@@ -11,7 +11,7 @@ export default function GoogleSignIn({ GOOGLE_AUTH_CLIENT_ID, ctxUrl }: Props) {
       <Head>
         <script src="https://accounts.google.com/gsi/client" async></script>
       </Head>
-      <div class="root">
+      <div>
         <div
           id="g_id_onload"
           data-client_id={GOOGLE_AUTH_CLIENT_ID}
