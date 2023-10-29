@@ -4,9 +4,15 @@ import { setCookie } from "$std/http/cookie.ts";
 export const handler: Handlers = {
   async POST(req, ctx) {
     const url = new URL(req.url);
+    const location = url.searchParams.get("ui");
+
+    if (!location) {
+      return new Response(null);
+    }
+
     const gData = await req.formData();
     const headers = new Headers({
-      location: `${url.pathname}${url.search ? url.search : ""}`,
+      location,
     });
 
     setCookie(headers, {

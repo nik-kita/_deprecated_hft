@@ -8,11 +8,15 @@ export const config: LayoutConfig = {
 };
 
 export default defineLayout((req, { Component, url }) => {
+  const authUrl = new URL(`${url.origin}/public/auth/google`);
+
+  authUrl.searchParams.append("ui", url.pathname);
+
   return (
     <>
       <GoogleSignIn
         GOOGLE_AUTH_CLIENT_ID={CONFIG.GOOGLE_AUTH_CLIENT_ID}
-        ctxUrl={new URL(`${url.origin}/public/auth/google`)}
+        ctxUrl={authUrl}
       />
       <h3>This is public/_layout.tsx</h3>
       <hr />

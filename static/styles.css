@@ -1,11 +1,13 @@
-@layer default, routes, islands, components;
+@layer default, common, routes, islands, components;
 
 @import './css/routes/public/_layout.css';
 
 @import './css/components/GoogleSignIn.css';
 
+@import './css/common.css';
+
 @layer default {
-  body {
+  html, body {
     margin: 0;
     padding: 0;
   }
